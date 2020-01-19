@@ -1,4 +1,6 @@
 import React from 'react'
+
+// Abrindo uma web page dentro do app
 import { WebView } from 'react-native-webview'
 
 function Profile({ navigation }) {

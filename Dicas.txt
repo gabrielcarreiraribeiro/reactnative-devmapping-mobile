@@ -1,0 +1,74 @@
+Dicas para criar um projeto utilizando a stack de Node, React e React Native
+
+Instalando node:
+
+	- Baixar Choco no windows ou HomeBrew para instalar
+
+Instalando Yarn:
+	
+	- Instalar pelo Choco ou HomeBrew
+	(Obs.: Colocar coment�rio "--ignore-dependencies" no final da linha de 	instala��o para ignorar depend�ncias - Exemplo: Node, que n�s j� instalamos)
+
+Instalar Editor de C�digo (Como visual studio code):
+
+	- Instalar pelo pr�prio site do mesmo
+
+Extens�es interessantes:
+
+	Visual Studio Code:
+	- Dracula Official (Tema para editor de c�digo)
+	- Material Icon Theme (Modifica as pastas e arquivos do seu projeto baseado na finalidade do mesmo)
+	- Import Cost (Informa o tamanho do import/require realizado na aplica��o)
+	- ESLint (Informa qualquer erro ou warning no seu c�digo)
+
+	Navegador:
+	- Json Viewer (O navegador transforma o conte�do da p�gina em Json, quando a estrutura de dados para ser exibida for essa)
+	Mais extens�es, visitar v�deo (Configurando o VS Code no canal do youtube da Rocketseat)
+
+Criando o Back-End da aplica��o:
+
+	- Criar pasta do projeto e iniciar o projeto em nodejs com 'yarn init -y' (-y serve para ignorar algumas perguntas n�o interessantes sobre o projeto)
+
+Instalando a depend�ncia "Express":
+
+	- 'yarn add express'
+
+Instalando a depend�ncia "Nodemon": (Serve para nos ajudar a restartar o projeto automaticamente caso haja alguma modifica��o no c�digo)
+
+	- 'yarn add nodemon -D (-D serve para instalarmos depend�ncias que s�o apenas de desenvolvimento, fazendo com que essas mesmas n�o sejam enviadas para 	produ��o)
+
+Instalando o programa "Insomnia" (Serve para testes de requisi��es HTTP, igual Postman por exemplo)
+
+	- Instalar pelo pr�prio site do Insomnia
+
+Configurando uma base de dados na nuvem para utilizarmos na aplica��o:
+
+	- Utilizamos uma base de dados mongodb hospedada no site "https://www.mongodb.com/cloud", a maioria das funcionalidades � de gra�a. Para criar o 		cluster, a base, etc... � s� seguir os passos que o pr�prio site d�.
+
+
+Instalando o plugin "mongoose" para realizarmos a conex�o do projeto com a nossa base de dados:
+
+	- 'yarn add mongoose'
+
+Instalando a biblioteca "axios" para a realiza��o de requisi��es HTTP.
+
+	- 'yarn add axios'
+
+Instalando expo para cria��o do app mobile
+
+	- 'yarn global add expo-cli'
+
+Colocar ap�s isso a seguinte linha de c�digo
+
+	- 'export PATH="$(yarn global bin):$PATH"'
+
+Criando o projeto com expo
+
+	- 'expo init "Nome da pasta do projeto"'
+
+
+
+
+
+
+

@@ -1,7 +1,15 @@
 import React, { useState, useEffect, Fragment } from 'react'
+
+// Importação de alguns dos componentes padrão do react native.
 import { StyleSheet, Image, View, Text, TextInput, TouchableOpacity } from 'react-native'
+
+// Importando Biblioteca para uso do mapa
 import MapView, { Marker, Callout } from 'react-native-maps'
+
+// Importando biblioteca para uso da localização
 import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
+
+// Disponibilizado também pelo expo, uma série de icones (os mais utilizados para desenvolvimento web e mobile)
 import { MaterialIcons } from '@expo/vector-icons'
 import api from '../services/api'
 
@@ -86,28 +94,15 @@ function Home({ navigation }) {
                         </Callout>
                     </Marker>
                 ))}
-                {/* <Marker coordinate={{ latitude: -22.8307117, longitude: -43.4200119 }}>
-                    <Image style={styles.mapAvatar} source={{ uri: "https://avatars0.githubusercontent.com/u/58861192?s=460&v=4" }} />
-
-                    <Callout onPress={() => {
-                        navigation.navigate("Profile", { github_username: "gabrielcarreiraribeiro" })
-                    }}>
-                        <View style={styles.mapAvatarDescription}>
-                            <Text style={styles.devName}>Gabriel Ribeiro</Text>
-                            <Text style={styles.devBio}>Let's code xD</Text>
-                            <Text style={styles.devTechs}>Java, Javascript</Text>
-                        </View>
-                    </Callout>
-                </Marker> */}
-
             </MapView>
+
             <View style={styles.searchDev}>
                 <TextInput
                     style={styles.searchDevInput}
                     placeholder="Buscar Devs por techs"
                     autoCapitalize="sentences"
                     autoCorrect={false}
-                    onChangeText={setTechs}/>
+                    onChangeText={setTechs} />
 
                 <TouchableOpacity onPress={loadDevs} style={styles.searchDevButton}>
                     <MaterialIcons name="my-location" size={20} color="#FFF" />
@@ -118,6 +113,7 @@ function Home({ navigation }) {
     )
 }
 
+// Por padrão, a estilização dos componentes em react native são pelo uso do "StyleSheet"
 const styles = StyleSheet.create({
     mapContainer: {
         flex: 1
