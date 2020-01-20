@@ -11,7 +11,10 @@ import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 
 // Disponibilizado também pelo expo, uma série de icones (os mais utilizados para desenvolvimento web e mobile)
 import { MaterialIcons } from '@expo/vector-icons'
+
 import api from '../services/api'
+
+import { connect, disconnect, subscribeToNewDevs, removeDevFromMap, updateDevFromMap } from '../services/socket'
 
 function Home({ navigation }) {
 
@@ -44,13 +47,54 @@ function Home({ navigation }) {
         laodInitialPosition()
     }, [])
 
+    useEffect(() => {
+        subscribeToNewDevs(dev => {
+            console.log("Adding...")
+            setDevs([...devs, dev])
+        })
+    })
+
+    useEffect(() => {
+        updateDevFromMap(devs => {
+            console.log(devs)
+            console.log("Updating...")
+            setDevs(devs)
+        })
+    })
+
+    useEffect(() => {
+        removeDevFromMap(github_username => {
+            console.log("Deleting...")
+            console.log(github_username)
+            const updatedDevArray = devs.filter(dev => {
+                if (dev.github_username !== github_username) {
+                    return dev
+                }
+            })
+            setDevs(updatedDevArray)
+            console.log(updatedDevArray)
+        })
+    })
+
     if (!currentRegion) {
         return null
     }
 
+    function setupWebSocket() {
+
+        disconnect()
+
+        const { latitude, longitude } = currentRegion
+
+        connect(
+            latitude,
+            longitude,
+            techs
+        )
+    }
+
     async function loadDevs() {
         const { latitude, longitude } = currentRegion
-        console.log(techs)
 
         const response = await api.get("/searchDevs", {
             params: {
@@ -59,8 +103,9 @@ function Home({ navigation }) {
                 techs
             }
         })
-        console.log(response.data)
+
         setDevs(response.data)
+        setupWebSocket()
     }
 
     function handleRegionChanged(region) {
