@@ -25,9 +25,6 @@ function connect(latitude, longitude, techs) {
     }
 
     socket.connect()
-    // socket.on("message", text => {
-    //     console.log(text)
-    // })
 }
 
 function disconnect() {
